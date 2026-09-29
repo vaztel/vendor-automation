@@ -11,7 +11,8 @@ WORKDIR /app
 # Install system dependencies (if needed, e.g., for compiled Python packages)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install fpdf2
 
 # Copy requirements first to leverage Docker cache
 COPY requirements.txt .
